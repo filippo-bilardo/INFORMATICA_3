@@ -1,28 +1,27 @@
 <!-- http://fblabs.ddns.net/inf3php/ES05/rcaptcha/ -->
 <?php
+// Recupero l'eventuale messaggio di errore passato tramite GET
 $msg_error = $_GET['error'] ?? '';
-$siteKey = "6LcSJi4rAAAAAI9NP1b1ANOrBEnR2gwkuCwVPhCp";
+$secretKey = "6Le-wy0rAAAAALqSCJGeQOBAFrLmJVJrzrZl8ABz"; //
+$siteKey = "6Le-wy0rAAAAAHHvM0OoL-LIpOw7UkX8GK9G0I05";
 ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Login con reCAPTCHA</title>
+    <title>Modulo con hCaptcha</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <h2>Login Utente</h2>
+    <h2>Modulo di Contatto</h2>
     <?php if ($msg_error): ?>
         <p style="color: red;"><?php echo htmlspecialchars($msg_error); ?></p>
     <?php endif; ?>
-    <form method="POST" action="login.php">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+    <form method="POST" action="verifica_captcha.php">
+        <!-- Altri campi del form -->
         <div class="g-recaptcha" data-sitekey="<?=$siteKey ?>"></div>
         <br/>
-        <button type="submit">Accedi</button>
+        <button type="submit">Invia</button>
     </form>
 </body>
 </html>

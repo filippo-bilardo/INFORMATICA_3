@@ -1,6 +1,7 @@
 <?php
 // Configurazione
-$secretKey = "5388ecce-dc88-4f1e-91aa-a26a5ffcf66e";
+$siteKey = "6Le-wy0rAAAAAHHvM0OoL-LIpOw7UkX8GK9G0I05";
+$secretKey = "6Le-wy0rAAAAALqSCJGeQOBAFrLmJVJrzrZl8ABz"; //
 $redirectError = "index.php?error=";
 
 // Verifica se il campo h-captcha-response è presente
