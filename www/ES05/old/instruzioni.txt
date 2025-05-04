@@ -1,0 +1,6 @@
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-20-04
+
+https://www.guru99.com/mariadb-tutorial-install.html
+cloud.it/tutorial/come-installare-phpmyadmin-su-ubuntu-20-04.aspx
+
+https://mariadb.com/kb/en/create-database/

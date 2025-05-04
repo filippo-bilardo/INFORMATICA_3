@@ -1,0 +1,30 @@
+<!-- http://204.216.213.176/inf3php/JS/ES01/ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ES01</title>
+</head>
+<body>
+    <h1>ES01 - Hello Javascrpit</h1>
+
+    <script>
+    alert("Benvenuti 4H!")
+
+    let possoContinuare=false
+    
+    let hoConfermato = confirm("Appartieni alla 4H?")
+    if(hoConfermato) {
+        let nome = prompt("Come ti chiami?")
+        possoContinuare = true
+    }
+
+    if(possoContinuare) {
+        alert("Benvenuto "+nome );
+    } else {
+        alert("Impossibile continuare")
+    }
+
+
+
+    </script>
+</html> 

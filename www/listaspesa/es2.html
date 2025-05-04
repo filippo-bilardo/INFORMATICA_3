@@ -1,0 +1,139 @@
+<!-- http://204.216.213.176/inf3php/listaspesa/es2.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricerca Prodotto - XHR Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .result h2 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .result p {
+      font-size: 14px;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    .error {
+      color: #dc3545;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ricerca Prodotto (XHR)</h1>
+    <input type="text" id="barcode" placeholder="Inserisci il codice a barre">
+    <button onclick="searchProduct()">Cerca</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function searchProduct() {
+      const barcode = document.getElementById("barcode").value.trim();
+      const resultDiv = document.getElementById("result");
+
+      if (!barcode) {
+        resultDiv.innerHTML = `<p class="error">Inserisci un codice a barre valido.</p>`;
+        return;
+      }
+
+      resultDiv.innerHTML = `<p>Caricamento...</p>`;
+
+      const xhr = new XMLHttpRequest();
+      const url = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+
+      xhr.open("GET", url, true);
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          try {
+            const data = JSON.parse(xhr.responseText);
+            
+            if (data.status === 1) {
+              const product = data.product;
+              resultDiv.innerHTML = `
+                <h2>${product.product_name || "Nome non disponibile"}</h2>
+                <p><strong>Marca:</strong> ${product.brands || "N/D"}</p>
+                <p><strong>Ingredienti:</strong> ${product.ingredients_text || "N/D"}</p>
+                <p><strong>Allergeni:</strong> ${product.allergens || "N/D"}</p>
+                <p><strong>Valori nutrizionali:</strong> ${JSON.stringify(product.nutriments) || "N/D"}</p>
+              `;
+            } else {
+              resultDiv.innerHTML = `<p class="error">Prodotto non trovato.</p>`;
+            }
+          } catch (e) {
+            resultDiv.innerHTML = `<p class="error">Errore nel parsing dei dati.</p>`;
+          }
+        } else {
+          resultDiv.innerHTML = `<p class="error">Errore HTTP: ${xhr.status}</p>`;
+        }
+      };
+
+      xhr.onerror = function () {
+        resultDiv.innerHTML = `<p class="error">Errore di rete o CORS.</p>`;
+      };
+
+      xhr.send();
+    }
+  </script>
+</body>
+</html>

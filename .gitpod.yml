@@ -1,0 +1,24 @@
+image:
+  file: .gitpod.dockerfile
+  #context: apache
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 8787
+    onOpen: open-browser
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: Apache
+    command: >
+      apachectl start &&
+      multitail /var/log/apache2/access.log -I /var/log/apache2/error.log
+  - name: Terminal
+    command: |
+      apachectl stop;
+      apachectl start;
+      clear
+      echo "";
+      echo "Commands you can try:";
+      echo " * apachectl stop";
+      echo " * apachectl start";
+      echo " * gp open /var/log/apache2/access.log";
+      echo " * gp open /var/log/apache2/error.log";

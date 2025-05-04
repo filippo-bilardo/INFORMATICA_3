@@ -1,0 +1,231 @@
+<!-- http://204.216.213.176/inf3php/ES02A/form2b.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementi Form HTML5 Stilizzati</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, output {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="color"] {
+            height: 40px;
+        }
+
+        input[type="range"] {
+            height: 10px;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        input[type="reset"] {
+            background-color: #f44336;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #da190b;
+        }
+
+        /* Stili per validazione */
+        input:invalid {
+            border-color: #ff0000;
+        }
+
+        input:valid {
+            border-color: #00ff00;
+        }
+
+        /* Stili per il focus */
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+            border-color: rgba(81, 203, 238, 1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Elementi Form HTML5</h1>
+    
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Nuovi Tipi di Input</legend>
+            
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="esempio@dominio.com">
+            </p>
+            
+            <p>
+                <label for="url">URL:</label>
+                <input type="url" id="url" name="url" placeholder="https://www.esempio.com">
+            </p>
+            
+            <p>
+                <label for="number">Numero (1-10):</label>
+                <input type="number" id="number" name="number" min="1" max="10">
+            </p>
+            
+            <p>
+                <label for="range">Range:</label>
+                <input type="range" id="range" name="range" min="0" max="100">
+            </p>
+            
+            <p>
+                <label for="date">Data:</label>
+                <input type="date" id="date" name="date">
+            </p>
+            
+            <p>
+                <label for="time">Ora:</label>
+                <input type="time" id="time" name="time">
+            </p>
+            
+            <p>
+                <label for="datetime">Data e Ora locale:</label>
+                <input type="datetime-local" id="datetime" name="datetime">
+            </p>
+            
+            <p>
+                <label for="month">Mese:</label>
+                <input type="month" id="month" name="month">
+            </p>
+            
+            <p>
+                <label for="week">Settimana:</label>
+                <input type="week" id="week" name="week">
+            </p>
+            
+            <p>
+                <label for="color">Colore:</label>
+                <input type="color" id="color" name="color">
+            </p>
+            
+            <p>
+                <label for="tel">Telefono:</label>
+                <input type="tel" id="tel" name="tel" placeholder="123-456-7890">
+            </p>
+            
+            <p>
+                <label for="search">Ricerca:</label>
+                <input type="search" id="search" name="search" placeholder="Cerca...">
+            </p>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Nuovi Attributi</legend>
+            
+            <p>
+                <label for="required">Campo Obbligatorio:</label>
+                <input type="text" id="required" name="required" required>
+            </p>
+            
+            <p>
+                <label for="autofocus">Autofocus:</label>
+                <input type="text" id="autofocus" name="autofocus" autofocus>
+            </p>
+            
+            <p>
+                <label for="pattern">Pattern (3 lettere):</label>
+                <input type="text" id="pattern" name="pattern" pattern="[A-Za-z]{3}">
+            </p>
+            
+            <p>
+                <label for="placeholder">Placeholder:</label>
+                <input type="text" id="placeholder" name="placeholder" placeholder="Scrivi qui...">
+            </p>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Nuovi Elementi</legend>
+            
+            <p>
+                <label for="browsers">Browser (con datalist):</label>
+                <input list="browserlist" id="browsers" name="browsers">
+                <datalist id="browserlist">
+                    <option value="Chrome">
+                    <option value="Firefox">
+                    <option value="Safari">
+                    <option value="Edge">
+                </datalist>
+            </p>
+            
+            <p>
+                <label for="a">Somma di 10 + 20 = </label>
+                <output name="somma" for="a b">30</output>
+            </p>
+        </fieldset>
+        
+        <p>
+            <input type="submit" value="Invia Form">
+            <input type="reset" value="Reimposta Form">
+        </p>
+    </form>
+
+</body>
+</html>

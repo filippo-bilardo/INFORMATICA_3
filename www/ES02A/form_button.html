@@ -1,0 +1,89 @@
+<!-- http://204.216.213.176/inf3php/ES02A/form_button.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempi di Button HTML5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+        }
+        .disabled-example {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elemento Button in HTML5</h1>
+
+    <section>
+        <h2>Tipi di Button</h2>
+        
+        <!-- Button generico -->
+        <button type="button">Button Generico</button>
+        
+        <!-- Button di tipo submit -->
+        <button type="submit">Invia Form</button>
+        
+        <!-- Button di tipo reset -->
+        <button type="reset">Reimposta Form</button>
+    </section>
+
+    <section>
+        <h2>Attributi dei Button</h2>
+        
+        <!-- Button disabilitato -->
+        <button disabled>Button Disabilitato</button>
+        
+        <!-- Button con nome -->
+        <button name="btn-name">Button con Nome</button>
+        
+        <!-- Button con valore -->
+        <button value="btn-value">Button con Valore</button>
+        
+        <!-- Button con autofocus -->
+        <button autofocus>Button con Autofocus</button>
+    </section>
+
+    <section>
+        <h2>Contenuto dei Button</h2>
+        
+        <!-- Button con solo testo -->
+        <button>Testo Semplice</button>
+        
+        <!-- Button con emoji -->
+        <button>👍 Like</button>
+        
+        <!-- Button con immagine -->
+        <button>
+            <img src="https://thispersondoesnotexist.com/" width="20" heigth="20" alt="icona">
+            Button con Immagine
+        </button>
+        
+        <!-- Button con HTML -->
+        <button>
+            <strong>Testo</str  ong> in <em>HTML</em>
+        </button>
+    </section>
+
+    <section>
+        <h2>Form con Button</h2>
+        <form action="#" method="post">
+            <input type="text" placeholder="Inserisci testo...">
+            <button type="submit">Invia</button>
+            <button type="reset">Reimposta</button>
+        </form>
+    </section>
+</body>
+</html>

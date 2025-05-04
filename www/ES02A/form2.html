@@ -1,0 +1,146 @@
+<!-- http://204.216.213.176/inf3php/ES02A/form2.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementi Form HTML5</title>
+</head>
+<body>
+    <h1>Elementi Form HTML5</h1>
+    
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Nuovi Tipi di Input</legend>
+            
+            <!-- Email -->
+            <p>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="esempio@dominio.com">
+            </p>
+            
+            <!-- URL -->
+            <p>
+                <label for="url">URL:</label><br>
+                <input type="url" id="url" name="url" placeholder="https://www.esempio.com">
+            </p>
+            
+            <!-- Number -->
+            <p>
+                <label for="number">Numero (1-10):</label><br>
+                <input type="number" id="number" name="number" min="1" max="10">
+            </p>
+            
+            <!-- Range -->
+            <p>
+                <label for="range">Range:</label><br>
+                <input type="range" id="range" name="range" min="0" max="100">
+            </p>
+            
+            <!-- Date -->
+            <p>
+                <label for="date">Data:</label><br>
+                <input type="date" id="date" name="date">
+            </p>
+            
+            <!-- Time -->
+            <p>
+                <label for="time">Ora:</label><br>
+                <input type="time" id="time" name="time">
+            </p>
+            
+            <!-- Datetime-local -->
+            <p>
+                <label for="datetime">Data e Ora locale:</label><br>
+                <input type="datetime-local" id="datetime" name="datetime">
+            </p>
+            
+            <!-- Month -->
+            <p>
+                <label for="month">Mese:</label><br>
+                <input type="month" id="month" name="month">
+            </p>
+            
+            <!-- Week -->
+            <p>
+                <label for="week">Settimana:</label><br>
+                <input type="week" id="week" name="week">
+            </p>
+            
+            <!-- Color -->
+            <p>
+                <label for="color">Colore:</label><br>
+                <input type="color" id="color" name="color">
+            </p>
+            
+            <!-- Tel -->
+            <p>
+                <label for="tel">Telefono:</label><br>
+                <input type="tel" id="tel" name="tel" placeholder="123-456-7890">
+            </p>
+            
+            <!-- Search -->
+            <p>
+                <label for="search">Ricerca:</label><br>
+                <input type="search" id="search" name="search" placeholder="Cerca...">
+            </p>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Nuovi Attributi</legend>
+            
+            <!-- Required -->
+            <p>
+                <label for="required">Campo Obbligatorio:</label><br>
+                <input type="text" id="required" name="required" required>
+            </p>
+            
+            <!-- Autofocus -->
+            <p>
+                <label for="autofocus">Autofocus:</label><br>
+                <input type="text" id="autofocus" name="autofocus" autofocus>
+            </p>
+            
+            <!-- Pattern -->
+            <p>
+                <label for="pattern">Pattern (3 lettere):</label><br>
+                <input type="text" id="pattern" name="pattern" pattern="[A-Za-z]{3}">
+            </p>
+            
+            <!-- Placeholder -->
+            <p>
+                <label for="placeholder">Placeholder:</label><br>
+                <input type="text" id="placeholder" name="placeholder" placeholder="Scrivi qui...">
+            </p>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Nuovi Elementi</legend>
+            
+            <!-- Datalist -->
+            <p>
+                <label for="browsers">Browser (con datalist):</label><br>
+                <input list="browserlist" id="browsers" name="browsers">
+                <datalist id="browserlist">
+                    <option value="Chrome">
+                    <option value="Firefox">
+                    <option value="Safari">
+                    <option value="Edge">
+                </datalist>
+            </p>
+            
+            <!-- Output -->
+            <p>
+                <label for="a">Somma di 10 + 20 = </label>
+                <output name="somma" for="a b">30</output>
+            </p>
+        </fieldset>
+        
+        <p>
+            <input type="submit" value="Invia Form">
+            <input type="reset" value="Reimposta Form">
+        </p>
+    </form>
+
+</body>
+</html>

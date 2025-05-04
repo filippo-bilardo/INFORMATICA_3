@@ -1,0 +1,77 @@
+<!-- http://204.216.213.176/inf3php/ES02A/form1.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio di Form</title>
+</head>
+<body>
+
+    <h1>Esempio di Form con vari elementi</h1>
+    
+    <form>
+        <!-- Input di testo -->
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome">
+        <br />
+
+        <!-- Input password -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Inserisci la tua password">
+        <br />
+        
+        <!-- Input email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Inserisci la tua email">
+        <br />
+
+        <!-- Input numero -->
+        <label for="telefono">Telefono:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Inserisci il tuo numero di telefono">
+        <br />
+
+        <!-- Input data -->
+        <label for="data">Data di nascita:</label>
+        <input type="date" id="data" name="data">
+        <br />
+
+        <!-- Checkbox -->
+        <label>Interessi:</label>
+        <input type="checkbox" id="sport" name="interessi" value="sport">
+        <label for="sport">Sport</label>
+        <input type="checkbox" id="musica" name="interessi" value="musica">
+        <label for="musica">Musica</label>
+        <br />
+
+        <!-- Radio button -->
+        <label>Sesso:</label>
+        <input type="radio" id="maschio" name="sesso" value="maschio">
+        <label for="maschio">Maschio</label>
+        <input type="radio" id="femmina" name="sesso" value="femmina">
+        <label for="femmina">Femmina</label>
+        <br />
+
+        <!-- Selezione -->
+        <label for="paese">Paese:</label>
+        <select id="paese" name="paese">
+            <option value="italia">Italia</option>
+            <option value="francia">Francia</option>
+            <option value="germania">Germania</option>
+            <option value="spagna">Spagna</option>
+        </select>
+        <br />
+
+        <!-- Textarea -->
+        <label for="messaggio">Messaggio:</label>
+        <textarea id="messaggio" name="messaggio" rows="4" placeholder="Scrivi il tuo messaggio qui"></textarea>
+        <br />
+
+        <!-- Pulsante di invio -->
+        <button type="submit">Invia</button>
+        <!-- Pulsante di reset -->
+        <button type="reset">Resetta</button>
+    </form>
+
+</body>
+</html>

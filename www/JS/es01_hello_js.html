@@ -1,0 +1,67 @@
+<!-- http://204.216.213.176/inf3php/JS/es01_hello_js.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Hello JS</title>
+</head>
+<body>
+    <h1>Hello JS</h1>
+    <p>Apri la console (CTRL+SHIFT+I) per vedere l'output dello script</p>
+
+    <script>
+        //alert("Hello JS");
+        console.log("Hello JS\n\n");
+    
+        //Cancellare la Console: Puoi cancellare il contenuto della console.
+        console.clear();
+
+        //Stampare su Console: Puoi stampare messaggi sulla console utilizzando console.log().
+        console.log('Hello Javascript. Messaggio sulla console del browser.'); 
+    
+        // Eseguire Comandi JavaScript: 
+        var risultato = 5 + 3;
+        console.log('Il risultato e\': ' + risultato);
+    
+        // Esaminare Variabili e Oggetti: Puoi ispezionare variabili e oggetti stampandoli sulla console.
+        var persona = {
+            nome: 'Mario',
+            età: 30
+        };
+        console.log(persona);
+    
+        //Testare Espressioni: Puoi testare rapidamente espressioni nella console.
+        //2 + 2; // La console restituirà 4
+    
+        //Misure di Tempo: Puoi misurare il tempo che impiega una porzione di codice.
+        console.time('misuraTempo');
+        // Codice da misurare
+        console.timeEnd('misuraTempo');
+
+        //Mostrare un Avviso: Puoi mostrare un avviso sulla console.
+        console.warn('Questo e\' un avviso!');
+
+        //Mostrare un Errore: Puoi mostrare un errore sulla console.
+        console.error("Si e' verificato un errore!");
+
+        //Visualizzare le Proprietà di un Oggetto: Puoi visualizzare le proprietà di un oggetto in modo interattivo.
+        var auto = { marca: 'Toyota', modello: 'Corolla' };
+        console.dir(auto);
+
+        //Interpolazione di Stringhe: Puoi interpolare variabili o espressioni nelle stringhe.
+        var nome = 'Maria';
+        console.log("Benvenuto, ${nome}!");
+        console.log('Benvenuto, ${nome}!');
+        console.log(`Benvenuto, ${nome}!`);
+
+        //Comandi di Debugging: Puoi utilizzare comandi specifici come debugger per impostare punti di interruzione nel tuo codice.
+        function esempio() {
+            debugger;
+            // Altri passaggi della funzione...
+        }
+
+        //Navigare nel DOM: Puoi ispezionare ed esplorare il DOM direttamente dalla console.
+        console.dir(document.body);
+        
+        </script>
+    </body>
+</html>  

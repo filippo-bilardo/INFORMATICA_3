@@ -1,0 +1,165 @@
+<!-- https://world.openfoodfacts.org/api/v0/product/5449000000439.json -->
+<!-- http://204.216.213.176/inf3php/listaspesa/product_search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dettagli Prodotto - OpenFoodFacts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    input[type="text"] {
+      width: calc(100% - 110px);
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+    .loading {
+      color: #007BFF;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dettagli Prodotto - OpenFoodFacts</h1>
+    <form id="search-form">
+      <input type="text" id="barcode" placeholder="Inserisci il codice a barre" required>
+      <button type="submit">Cerca</button>
+    </form>
+    <div id="error-message" class="error"></div>
+    <div id="loading-message" class="loading" style="display: none;">Caricamento dati in corso...</div>
+    <table id="product-details" style="display: none;">
+      <thead>
+        <tr>
+          <th>Attributo</th>
+          <th>Dettaglio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Nome</td><td id="product-name"></td></tr>
+        <tr><td>Marca</td><td id="product-brand"></td></tr>
+        <tr><td>Categorie</td><td id="product-categories"></td></tr>
+        <tr><td>Ingredienti</td><td id="product-ingredients"></td></tr>
+        <tr><td>Immagine</td><td id="product-image"></td></tr>
+        <tr><td>Grado nutrizionale</td><td id="product-nutrition"></td></tr>
+        <tr><td>Packaging</td><td id="product-packaging"></td></tr>
+        <tr><td>Trasformazione alimentare</td><td id="product-processing"></td></tr>
+        <tr><td>Valori nutrizionali</td><td id="product-nutritional-values"></td></tr>
+        <tr><td>Green-score</td><td id="product-green-score"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    async function getProductDetails(barcode) {
+      const apiUrl = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`Errore nella richiesta: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        if (data.status === 1) {
+          return {
+            name: data.product.product_name || "N/A",
+            brand: data.product.brands || "N/A",
+            categories: data.product.categories || "N/A",
+            ingredients: data.product.ingredients_text || "N/A",
+            imageUrl: data.product.image_url || "N/A",
+            nutrition: data.product.nutrition_grades_tags ? data.product.nutrition_grades_tags[0] : "N/A",
+            packaging: data.product.packaging_text || "N/A",
+            processing: data.product.processing_text || "N/A",
+            nutritionalValues: data.product.nutriments ? JSON.stringify(data.product.nutriments, null, 2) : "N/A",
+            greenScore: data.product.environment_impact_level_tags ? data.product.environment_impact_level_tags.join(", ") : "N/A",
+          };
+        } else {
+          throw new Error("Prodotto non trovato.");
+        }
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    }
+
+    document.getElementById("search-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const barcode = document.getElementById("barcode").value.trim();
+      const errorMessage = document.getElementById("error-message");
+      const loadingMessage = document.getElementById("loading-message");
+      const productDetailsTable = document.getElementById("product-details");
+
+      errorMessage.textContent = "";
+      productDetailsTable.style.display = "none";
+      loadingMessage.style.display = "block";
+
+      try {
+        const productDetails = await getProductDetails(barcode);
+
+        document.getElementById("product-name").textContent = productDetails.name;
+        document.getElementById("product-brand").textContent = productDetails.brand;
+        document.getElementById("product-categories").textContent = productDetails.categories;
+        document.getElementById("product-ingredients").textContent = productDetails.ingredients;
+        document.getElementById("product-image").innerHTML = productDetails.imageUrl !== "N/A" ? `<img src="${productDetails.imageUrl}" alt="Immagine prodotto" style="max-width:100px;">` : "N/A";
+        document.getElementById("product-nutrition").textContent = productDetails.nutrition;
+        document.getElementById("product-packaging").textContent = productDetails.packaging;
+        document.getElementById("product-processing").textContent = productDetails.processing;
+        document.getElementById("product-nutritional-values").textContent = productDetails.nutritionalValues;
+        document.getElementById("product-green-score").textContent = productDetails.greenScore;
+
+        productDetailsTable.style.display = "table";
+      } catch (error) {
+        errorMessage.textContent = error.message;
+      } finally {
+        loadingMessage.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

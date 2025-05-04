@@ -1,0 +1,170 @@
+<!-- http://204.216.213.176/inf3php/ES02A/form2c.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementi Form HTML5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f5f5f5;
+            padding: 20px; 
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #666;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #444;
+        }
+        input, output {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: 45%;
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="reset"] {
+            background-color: #f44336;
+            float: right;
+        }
+        input[type="color"] {
+            height: 40px;
+        }
+        input[type="range"] {
+            padding: 5px 0;
+        }
+
+
+        /* Stili per validazione */
+        input:invalid {
+            border-color: #ff0000;
+        }
+
+        input:valid {
+            border-color: #00ff00;
+        }
+
+        /* Stili per il focus */
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+            border-color: rgba(81, 203, 238, 1);
+        }        
+    </style>
+</head>
+<body>
+    <h1>Elementi Form HTML5</h1>
+    
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Nuovi Tipi di Input</legend>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="esempio@dominio.com">
+            
+            <label for="url">URL:</label>
+            <input type="url" id="url" name="url" placeholder="https://www.esempio.com">
+            
+            <label for="number">Numero (1-10):</label>
+            <input type="number" id="number" name="number" min="1" max="10">
+            
+            <label for="range">Range:</label>
+            <input type="range" id="range" name="range" min="0" max="100">
+            
+            <label for="date">Data:</label>
+            <input type="date" id="date" name="date">
+            
+            <label for="time">Ora:</label>
+            <input type="time" id="time" name="time">
+            
+            <label for="datetime">Data e Ora locale:</label>
+            <input type="datetime-local" id="datetime" name="datetime">
+            
+            <label for="month">Mese:</label>
+            <input type="month" id="month" name="month">
+            
+            <label for="week">Settimana:</label>
+            <input type="week" id="week" name="week">
+            
+            <label for="color">Colore:</label>
+            <input type="color" id="color" name="color">
+            
+            <label for="tel">Telefono:</label>
+            <input type="tel" id="tel" name="tel" placeholder="123-456-7890">
+            
+            <label for="search">Ricerca:</label>
+            <input type="search" id="search" name="search" placeholder="Cerca...">
+        </fieldset>
+        
+        <fieldset>
+            <legend>Nuovi Attributi</legend>
+            
+            <label for="required">Campo Obbligatorio:</label>
+            <input type="text" id="required" name="required" required>
+            
+            <label for="autofocus">Autofocus:</label>
+            <input type="text" id="autofocus" name="autofocus" autofocus>
+            
+            <label for="pattern">Pattern (3 lettere):</label>
+            <input type="text" id="pattern" name="pattern" pattern="[A-Za-z]{3}">
+            
+            <label for="placeholder">Placeholder:</label>
+            <input type="text" id="placeholder" name="placeholder" placeholder="Scrivi qui...">
+        </fieldset>
+        
+        <fieldset>
+            <legend>Nuovi Elementi</legend>
+            
+            <label for="browsers">Browser (con datalist):</label>
+            <input list="browserlist" id="browsers" name="browsers">
+            <datalist id="browserlist">
+                <option value="Chrome">
+                <option value="Firefox">
+                <option value="Safari">
+                <option value="Edge">
+            </datalist>
+            
+            <label for="a">Somma di 10 + 20 = </label>
+            <output name="somma" for="a b">30</output>
+        </fieldset>
+        
+        <input type="submit" value="Invia Form">
+        <input type="reset" value="Reimposta Form">
+    </form>
+
+</body>
+</html>

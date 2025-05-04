@@ -1,0 +1,33 @@
+<!-- http://204.216.213.176/inf3php/JS/es01_hello_js.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>JS Selector</title>
+</head>
+<body>
+    <h1>JS Selector</h1>
+    <p id="p1">Apri la console (CTRL+SHIFT+I) per vedere l'output dello script</p>
+    <hr />
+
+    <p class="rosso">Rosso</p>
+    <p class="rosso">Rosso</p>
+    <p class="rosso">Rosso</p>
+    <p class="verde">Verde</p>
+    <p class="verde">Verde</p>
+    <p class="verde">Verde</p>
+    <p class="rosso">Rosso</p>
+    <hr />
+    
+    <a href="https://codegrind.it/esercizi/javascript/prendere-elementi#-esercizio-1">Altri esercizi</a>
+    
+    <script>
+        const elemento = document.getElementById("p1");
+        console.log(elemento.textContent);
+
+        const elementi = document.getElementsByClassName("rosso");
+        for (let i = 0; i < elementi.length; i++) {
+            elementi[i].style.color = "red";
+        }
+    </script>
+    </body>
+</html>  
