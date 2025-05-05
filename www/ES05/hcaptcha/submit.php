@@ -1,6 +1,6 @@
 <?php
 // Configurazione
-$secretKey = "5388ecce-dc88-4f1e-91aa-a26a5ffcf66e";
+require_once 'passwords.env'; // Include il file delle password
 $redirectError = "index.php?error=";
 
 // Verifica se il campo h-captcha-response è presente

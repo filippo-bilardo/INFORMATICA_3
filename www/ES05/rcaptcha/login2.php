@@ -1,12 +1,13 @@
 <?php
 // Configurazione
-require_once 'passwords.env'; // Include il file delle password
+require_once 'passwords.env';
 
 $redirectError = "index.php?error=";
 
 // Verifica se il campo g-recaptcha-response è presente
 if (!isset($_POST['g-recaptcha-response'])) {
-    echo "<h2>Errore: reCAPTCHA non completato.</h2>";
+    header("Location: " . $redirectError . urlencode("reCAPTCHA non completato."));
+    exit;
 }
 
 // Dati del modulo
@@ -29,17 +30,19 @@ curl_close($ch);
 $result = json_decode($response, true);
 
 if ($result['success']) {
-    // Validazione riuscita: elabora i dati (es. invia email)
-    echo "<h2>Grazie per aver inviato il modulo!</h2>";
-    echo "<p>Username: $username</p>";
-    echo "<p>Password: $password</p>";
-
-    echo "<br/><br/>" . $response;
+    // Esempio di autenticazione semplice (da sostituire con controllo su database)
+    $user_demo = 'utente';
+    $pass_demo = 'password123';
+    if ($username === $user_demo && $password === $pass_demo) {
+        echo "<h2>Login riuscito!</h2>";
+        echo "<p>Benvenuto, $username</p>";
+        //echo "<br/><br/>" . $response;
+    } else {
+        header("Location: " . $redirectError . urlencode("Credenziali non valide."));
+        exit;
+    }
 } else {
-    // Errore nella validazione
-    //header("Location: " . $redirectError . urlencode("hCaptcha non valido. Riprova."));
-    //exit;
-    echo "<h2>Errore: hCaptcha non valido. Riprova.</h2>";
-    echo "<br/><br/>" . $response;
+    header("Location: " . $redirectError . urlencode("reCAPTCHA non valido. Riprova."));
+    exit;
 }
 ?>

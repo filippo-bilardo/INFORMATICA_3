@@ -1,8 +1,9 @@
 <!-- http://fblabs.ddns.net/inf3php/ES05/hcaptcha/ -->
 <?php
+// Recupero le password
+require_once 'passwords.env';
 // Recupero l'eventuale messaggio di errore passato tramite GET
 $msg_error = $_GET['error'] ?? '';
-$secretKey = "5388ecce-dc88-4f1e-91aa-a26a5ffcf66e";
 ?>
 <!DOCTYPE html>
 <html lang="it">

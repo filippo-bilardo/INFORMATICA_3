@@ -1,7 +1,9 @@
 <!-- http://fblabs.ddns.net/inf3php/ES05/rcaptcha/ -->
 <?php
+require_once 'passwords.env'; // Include il file delle password
+
 $msg_error = $_GET['error'] ?? '';
-$siteKey = "6LcSJi4rAAAAAI9NP1b1ANOrBEnR2gwkuCwVPhCp";
+
 ?>
 <!DOCTYPE html>
 <html lang="it">
