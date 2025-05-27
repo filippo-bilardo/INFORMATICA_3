@@ -1,0 +1,1 @@
+docker exec -it lamp_nodejs bash -l
