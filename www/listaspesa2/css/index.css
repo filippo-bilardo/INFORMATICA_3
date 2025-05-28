@@ -1,0 +1,119 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #333;
+}
+
+#header {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 1% 2%;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+#content {
+    color: #fff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    background-color: #505050;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid #fff;
+    text-align: center;
+}
+
+#input{
+    border: 1px solid white;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+#button {
+    border: 1px solid white;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#button:hover {
+    background-color: #252525;
+}
+
+#button:active{
+    background-color: #1f1f1f;
+}
+
+#error {
+    color:rgb(200, 0, 0);
+    text-decoration: underline;
+}
+
+a {
+    color:white;
+}
+
+a:hover {
+    color:rgb(148, 148, 148);
+}
+
+a:active {
+    color:rgb(77, 77, 77);
+}
+
+#ris {
+    justify-content: center;
+    text-align: center;
+    background-color: #606060;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid white;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 5px;
+    margin: 0 auto;
+}
+
+#ris:hover {
+    opacity: 0.9;
+}
+
+#ris:active {
+    opacity: 0.8;
+}
+
+p {
+    color:white;
+    font-family: Arial, sans-serif;
+}
+
+img {
+    border-radius: 10px;
+}
+
+#video {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border: solid white;
+    border-radius: 10px;
+    display: none;
+}
+
+canvas, video {
+    width: 100%;
+}
+
